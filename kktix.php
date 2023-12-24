@@ -30,3 +30,6 @@ echo "</ul>";
 <script src="./plugin/js/bootstrap.js"></script>    
 </body>
 </html>
+
+<!-- commit
+比較使用ajax和原生後端頁面的流量差異(kktix.php) -->

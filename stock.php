@@ -5,3 +5,6 @@ $stocks=json_decode($json);
 print_r($stocks);
 echo "</pre>"; */
 echo json_encode($stocks);
+
+// commit
+// 使用axios來實現ajax的功能
