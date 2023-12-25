@@ -18,6 +18,15 @@
     h1 {
       font-weight: bolder;
     }
+
+    #relation {
+      border: 1px solid #ccc;
+      width: 93.5%;
+      position: relative;
+      left: 74px;
+      top: -1px;
+      display: none;
+    }
   </style>
 </head>
 
@@ -42,6 +51,12 @@
     </div>
   </div>
 
+  <div class="input-group mb-3 container w-50">
+    <span class="input-group-text" id="basic-addon1">Search</span>
+    <input id="search-input" type="text" class="form-control">
+    <div id="relation"></div>
+  </div>
+
   <div class="users d-flex flex-wrap mx-auto my-3" style="width:64%">
   </div>
 
@@ -53,16 +68,16 @@
 
 </html>
 <script>
-  //宣告modal
-  /*   const stuModal = new bootstrap.Modal('#studentForm', {
-      keyboard: false
+
+  let input
+  $("#search-input").on('input', () => {
+    input = $("#search-input").val()
+    $.get("./api/search.php", { input }, (result) => {
+      $("#relation").html(result)
+      $("#relation").show()
     })
-  
-    $("#studentForm").on('show.bs.modal', () => {
-      $.get("./api/get_schools.php", (options) => {
-        $("#schools").html(options)
-      })
-    }) */
+  })
+
   let stuModal
   function popForm(type, id = null) {
     switch (type) {
@@ -139,7 +154,6 @@
         $(".class-btn.btn.btn-success").removeClass('btn-success')
         $("#b" + value).addClass('btn-success');
         $("#b" + value).removeClass('btn-info');
-
       }
     })
   }
